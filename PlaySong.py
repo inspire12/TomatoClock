@@ -34,7 +34,6 @@ def play_mp3(mp3_file_path):
 
 def limit_func_time(func,args,time):
 	"""limit the running time of a function
-	
 	Args:
 	    func (function): function to run
 	    args (tuple): args of func ,in the form of tuple
@@ -51,8 +50,8 @@ def limit_func_time(func,args,time):
 		return False
 	return True
 	
-def limit_playing_time(miniutes):
-	limit_func_time(play_mp3,('sound/bgm.mp3',),miniutes*60)
+def limit_playing_time(minutes):
+	limit_func_time(play_mp3,('sound/bgm.mp3',),minutes*60)
 
 if __name__ == '__main__':
 	mp3_file_path = 'sound/bgm.mp3'
