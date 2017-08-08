@@ -18,16 +18,17 @@ class TomatoClock:
         self.seconds = 0
         self.rest = 0
 
-        self.top = Tkinter.Tk()
+        self.root = Tkinter.Tk()
 
-        self.top.wm_title('Tomato Clock')
-        self.top.geometry('{}x{}'.format(250, 120))
-        self.top.resizable(width=False, height=False)
+        self.root.wm_title('Tomato Clock')
+        self.root.geometry('{}x{}'.format(250, 120))
+        self.root.resizable(width=False, height=False)
         #self.top.iconbitmap(r'photo/tomato.ico')
 
         # the frame to place the blocks
-        self.frame = Tkinter.Frame(self.top)
+        self.frame = Tkinter.Frame(self.root)
         self.frame.pack()
+
 
         # work time block
         self.work_label = Tkinter.Label(self.frame,text='Tomato Time')
@@ -60,7 +61,12 @@ class TomatoClock:
         self.mini_label_ = Tkinter.Label(self.frame, text='hour')
         self.mini_label_.grid(row=3, column=2)
 
-        self.top.mainloop()
+        #
+        # ing- always on the top
+        self.root.lift
+        self.root.call('wm', 'attributes', '.', '-topmost', True)
+        self.root.after_idle(self.root.call, 'wm', 'attributes', '.', '-topmost', False)
+        self.root.mainloop()
 
 
     def start_count(self):
@@ -86,12 +92,12 @@ class TomatoClock:
                 return True
 
         if self.seconds >= 10:
-            print "\r%d:%2d" % (self.minutes, self.seconds)
+            #print "\r%d:%2d" % (self.minutes, self.seconds)
             self.hour.config(text=str(self.minutes) +":" +str(self.seconds))
         else :
-            print "\r%d:0%d" % (self.minutes, self.seconds)
-            self.hour.config(text=str(self.minutes) +":" +str(self.seconds))
-        self.top.after(1000,self.count_down_time)
+            #print "\r%d:0%d" % (self.minutes, self.seconds)
+            self.hour.config(text=str(self.minutes) +":0" +str(self.seconds))
+        self.root.after(1000, self.count_down_time)
 
 
 if __name__ == '__main__':

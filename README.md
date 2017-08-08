@@ -13,6 +13,11 @@ The GUI of the small tool is like this
 4. when the time of "Tomato Time" is up, the "bgm.mp3" in the "sound" floder will be played automatically for the period of "Break time", reminding you of standing up and having a rest, **you can also change  "bgm.mp3" to your favorite song ,but remember to keep its' name as "bgm.mp3"**
 5. repeat the process mentioned above.
 
+## will develop
+1. To do list and Save automatically schedule in the csv file
+2. Add always on the top for window os
+
+
 ## Requires
 - environment : python 2.7 
 - third-party packages : pygame
